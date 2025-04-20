@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Should you use Types or Interface</title>
+  <link rel="stylesheet" href="static/kim.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Should you use Types or Interface?</h1>
+    <p>
+      Sa TypeScript, both <code>type</code> at <code>interface</code> ay ginagamit para mag-define ng shapes ng data. 
+      Pero, paano mo malalaman kung alin ang gagamitin?
+    </p>
+    <p>
+      Kung simple object lang ang gusto mong i-define, <strong>interface</strong> ang mas readable and extendable. 
+      Pero kung gusto mong gumawa ng union types o complex types like tuples, dun papasok ang <strong>type</strong>.
+    </p>
+    <p>Example gamit ang <code>interface</code>:</p>
+    <pre>
+interface User {
+  name: string;
+  age: number;
+}
+    </pre>
+
+    <p>Example gamit ang <code>type</code>:</p>
+    <pre>
+type User = {
+  name: string;
+  age: number;
+};
+    </pre>
+
+    <button class="toggle-btn" onclick="toggleExtra()">Show More Insights</button>
+    <div class="extra-info" id="extra">
+      <p>
+        Technically, halos pareho lang sila sa karamihan ng cases. Pero sa mga mas malaking codebase, 
+        mas preferred ang <strong>interface</strong> dahil mas madali itong i-extend.
+      </p>
+      <p>
+        At tandaan, may mga limitations ang <strong>interface</strong> tulad ng hindi ito puwedeng gamitin sa union types.
+        Kaya kung kailangan mong gumawa ng type na pwedeng string o number, dapat <code>type</code> ang gamitin.
+      </p>
+      <a href="https://www.facebook.com/kim.baricog.2025" class="card"><button style="margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+position: absolute;
+left: 400px;
+width: 150px;
+height: auto;
+top: 616px;
+" >send your feedback</button></a>
+    </div>
+  </div>
+
+  <script>
+    function toggleExtra() {
+      const extra = document.getElementById("extra");
+      const btn = document.querySelector(".toggle-btn");
+      if (extra.style.display === "none" || extra.style.display === "") {
+        extra.style.display = "block";
+        btn.textContent = "Hide Extra Insights";
+      } else {
+        extra.style.display = "none";
+        btn.textContent = "Show More Insights";
+      }
+    }
+  </script>
+</body>
+</html>
